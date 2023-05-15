@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+// should start with function keyword or arrow function
+//component name should start with capital
+// you should have component body (jsx) + component logic
+//export that component to use outside
+
+import React, { createContext, useState } from "react";
 import './App.css';
+import ThemeButton from "./components/theme-button";
+import Homepage from "./pages/homepage";
+//jsx
+//createelement
+//element -> div, p, h1, span
+//properties -> classname, id, click
+//children, body
+
+export const ThemeContext = createContext(null)
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
+  const [theme, setTheme] = useState(false)
+
+  return (
+  <ThemeContext.Provider
+  value={{theme,setTheme,}}
+  >
+    <div className="App" style = {theme ? {backgroundColor: "#feb300"}:{}}>
+
+      <ThemeButton />
+      <Homepage />
+    </div>
+  </ThemeContext.Provider>
+  )
+}
 export default App;
