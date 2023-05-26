@@ -29,7 +29,7 @@ if(apiCalledSuccess){
     setApiCalledSuccess(false)
 }
 
-},[apiCalledSuccess])
+},[apiCalledSuccess,setApiCalledSuccess])
 
     return (
         <form onSubmit = {handleSubmit} className="Search">
